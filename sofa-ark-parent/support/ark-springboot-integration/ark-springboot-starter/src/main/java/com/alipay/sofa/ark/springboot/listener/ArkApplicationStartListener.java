@@ -46,9 +46,7 @@ public class ArkApplicationStartListener implements ApplicationListener<SpringAp
     @Override
     public void onApplicationEvent(SpringApplicationEvent event) {
         try {
-            if (ArkConfigs.isEmbedEnable()
-                || LaunchedURLClassLoader.class.isAssignableFrom(this.getClass().getClassLoader()
-                    .getClass())) {
+            if (ArkConfigs.isEmbedEnable()) {
                 ArkConfigs.setEmbedEnable(true);
                 startUpArkEmbed(event);
                 return;
